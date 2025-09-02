@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asa Jiwa Foundation - Merawat Jiwa, Menumbuhkan Asa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c7a7b;
+            --secondary: #319795;
+            --accent: #38b2ac;
+            --light: #e6fffa;
+            --dark: #234e52;
+            --gray: #718096;
+            --light-gray: #f7fafc;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+            color: var(--light);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+            margin-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .about-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .about-card h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        /* Programs Section */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .program-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .program-card-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .program-card-body {
+            padding: 20px;
+        }
+        
+        .program-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: var(--light);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.2;
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-card h4 {
+            color: var(--primary);
+            text-align: right;
+        }
+        
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .contact-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Collaboration Section */
+        .collaboration-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .collaboration-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .collaboration-card-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .collaboration-card-body {
+            padding: 20px;
+        }
+        
+        .collaboration-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .collaboration-card ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .collaboration-card ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .collaboration-card ul li i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background: var(--light);
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* Volunteer Form */
+        .volunteer-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .resource-card-img {
+            height: 180px;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .resource-card-img i {
+            font-size: 4rem;
+            color: var(--accent);
+        }
+        
+        .resource-card-body {
+            padding: 20px;
+        }
+        
+        .resource-card-body h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .newsletter-form button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* WhatsApp Chatbox */
+        .whatsapp-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .whatsapp-chat a {
+            display: block;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-chat a:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 15px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-heart"></i>
+                Asa Jiwa Foundation
+            </div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#programs">Program</a></li>
+                    <li><a href="#news">Berita</a></li>
+                    <li><a href="#collaboration">Kolaborasi</a></li>
+                    <li><a href="#volunteer">Relawan</a></li>
+                    <li><a href="#resources">Publikasi</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="#donation">Donasi</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                <div class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section (Home) -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Asa Jiwa Foundation</h1>
+            <p>"Merawat Jiwa, Menumbuhkan Asa"</p>
+            <a href="#about" class="btn">Kenali Kami Lebih Dekat</a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-card">
+                    <i class="fas fa-history"></i>
+                    <h3>Sejarah</h3>
+                    <p>Asa Jiwa Foundation (AJF) lahir pada Juli 2025 dari keresahan anak muda yang sering merasa sendirian menghadapi stres, overthinking, dan masalah kesehatan mental tanpa tempat untuk berbagi.</p>
+                </div>
+                <div class="about-card">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Visi & Misi</h3>
+                    <p><strong>Visi:</strong> Mewujudkan generasi muda Indonesia yang sadar, peduli, dan tangguh dalam menjaga kesehatan mental.</p>
+                    <p><strong>Misi:</strong> Memberikan edukasi psikologi praktis, membangun safe space, melatih relawan muda, menjembatani pelajar dengan profesional, dan menciptakan budaya "pulih bareng".</p>
+                </div>
+       <div class="about-card">
+                    <i class="fas fa-file-contract"></i>
+                    <h3>Legalitas</h3>
+                    <p><strong>Nomor AHU:</strong> AHU-0082456.AH.01.04.Tahun 2025</p>
+                    <p><strong>Bentuk:</strong> Yayasan Sosial Non-Profit</p>
+                    <p><strong>Email:</strong> asajiwafoundation@gmail.com</p>
+                    <p><strong>IG:</strong> @asajiwa.id</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs">
+        <div class="container">
+            <h2 class="section-title">Program & Kegiatan</h2>
+            <div class="program-grid">
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <h3>Kelas Asa</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <i class="fas fa-book-open"></i>
+                        <p>Ruang belajar & diskusi seputar kesehatan mental dengan bahasa yang mudah dipahami. Bisa diadakan di sekolah, kampus, atau online.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <h3>Sahabat Asa</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <i class="fas fa-hands-helping"></i>
+                        <p>Program peer support di mana relawan muda AJF jadi teman pendamping buat ngobrol dan saling support.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <h3>Jiwa Talk</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <i class="fas fa-microphone"></i>
+                        <p>Webinar, talkshow, atau podcast bareng psikolog, konselor, atau penyintas dengan gaya yang relatable.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <h3>Gerakan Jumat Asa</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <i class="fas fa-calendar-alt"></i>
+                        <p>Kampanye rutin setiap Jumat lewat konten edukasi, tips self-care, hingga challenge positif di media sosial.</p>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <h3>Festival Jiwa</h3>
+                    </div>
+                    <div class="program-card-body">
+                        <i class="fas fa-music"></i>
+                        <p>Event tahunan yang menggabungkan edukasi, seni, dan ruang ekspresi jiwa. Ada workshop, pameran karya, sharing session, sampai panggung seni.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimoni</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"AJF memberikan ruang yang aman untuk berbagi dan belajar tentang kesehatan mental. Terima kasih telah menjadi teman dalam perjalanan saya."</p>
+                    <h4>- Rina, Peserta Kelas Asa</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Menjadi relawan di AJF mengajarkan saya arti empati dan dukungan. Saya merasa berguna dan tumbuh bersama komunitas ini."</p>
+                    <h4>- Budi, Relawan Sahabat Asa</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Festival Jiwa adalah pengalaman yang luar biasa! Saya bisa mengekspresikan diri dan belajar banyak tentang kesehatan mental dengan cara yang menyenangkan."</p>
+                    <h4>- Siti, Peserta Festival Jiwa</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeri Foto & Video</h2>
+            <div class="gallery-grid">
+              <img src="https://images.unsplash.com/photo-1542626991-a2f572c0a364?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 1">
+                <img src="https://images.unsplash.com/photo-1516534775068-ba3e7458af70?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 2">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 3">
+                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 4">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 5">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gallery 6">
+            </div>
+        </div>
+    </section>
+
+    <!-- Collaboration Section -->
+    <section id="collaboration" class="collaboration">
+        <div class="container">
+            <h2 class="section-title">Kolaborasi & Media Partner</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Kami terbuka untuk kolaborasi dengan berbagai pihak yang memiliki visi serupa dalam meningkatkan kesadaran kesehatan mental. Beberapa media partner yang telah bekerja sama dengan kami:</p>
+            
+            <div class="collaboration-cards">
+                <div class="collaboration-card">
+                    <div class="collaboration-card-header">
+                        <h3>Media Partner Kami</h3>
+                    </div>
+                    <div class="collaboration-card-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Duta Nusantara Citra Budaya</li>
+                            <li><i class="fas fa-check-circle"></i> Generasi Responsif</li>
+                            <li><i class="fas fa-check-circle"></i> Change Community</li>
+                            <li><i class="fas fa-check-circle"></i> Duta Pendidikan Nusantara</li>
+                            <li><i class="fas fa-check-circle"></i> Duta Anak Nusantara</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collaboration-card">
+                    <div class="collaboration-card-header">
+                        <h3>Komunitas yang Menaungi</h3>
+                    </div>
+                    <div class="collaboration-card-body">
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Gema Bumi Indonesia</li>
+                            <li><i class="fas fa-check-circle"></i> Duta Siswa Aktif Indonesia</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="collaboration-card">
+                    <div class="collaboration-card-header">
+                        <h3>Proposal Kolaborasi</h3>
+                    </div>
+                    <div class="collaboration-card-body">
+                        <p>Unduh proposal kolaborasi umum kami yang dapat diajukan ke berbagai pihak:</p>
+                        <a href="#" class="btn" style="margin-top: 15px;">Unduh Proposal</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contact" class="btn">Ajukan Kerjasama</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section id="volunteer" class="volunteer">
+        <div class="container">
+            <h2 class="section-title">Relawan & Keanggotaan</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Bergabunglah menjadi relawan AJF dan jadilah bagian dari perubahan untuk kesehatan mental di Indonesia.</p>
+            
+            <div class="volunteer-form">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Form Pendaftaran Relawan</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Nomor WhatsApp</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="program">Program yang diminati</label>
+                        <select id="program" name="program">
+                            <option value="kelas-asa">Kelas Asa</option>
+                            <option value="sahabat-asa">Sahabat Asa</option>
+                            <option value="jiwa-talk">Jiwa Talk</option>
+                            <option value="jumat-asa">Gerakan Jumat Asa</option>
+                            <option value="festival-jiwa">Festival Jiwa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="motivation">Motivasi Bergabung</label>
+                        <textarea id="motivation" name="motivation" placeholder="Ceritakan mengapa Anda ingin bergabung menjadi relawan AJF..."></textarea>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn" style="width: 100%;">Kirim Pendaftaran</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="resources">
+        <div class="container">
+            <h2 class="section-title">Publikasi & Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-card-img">
+                        <i class="fas fa-file-image"></i>
+                    </div>
+                    <div class="resource-card-body">
+                        <h3>Poster Kegiatan</h3>
+                        <p>Download poster kegiatan AJF untuk disebarkan di komunitas Anda.</p>
+                        <a href="#" class="btn" style="margin-top: 15px;">Unduh</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-card-img">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="resource-card-body">
+                        <h3>E-book & Modul</h3>
+                        <p>Akses e-book dan modul edukasi kesehatan mental gratis.</p>
+                        <a href="#" class="btn" style="margin-top: 15px;">Unduh</a>
+                    </div>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-card-img">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <div class="resource-card-body">
+                        <h3>Press Release</h3>
+                        <p>Baca press release terkait kegiatan dan program AJF.</p>
+                        <a href="#" class="btn" style="margin-top: 15px;">Baca</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+          <h2 class="section-title">Kontak Kami</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Alamat</h3>
+                    <p>Jl. Sagara 102 Cibalong, Garut, Jawa Barat</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>asajiwafoundation@gmail.com</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>WhatsApp</h3>
+                    <p>+6282228575526</p>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>@asajiwa.id</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donation" class="donation">
+        <div class="container">
+            <h2 class="section-title">Donasi & Dukungan</h2>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p>Dukung kami dalam menyebarkan edukasi kesehatan mental ke seluruh Indonesia. Setiap donasi Anda sangat berarti bagi kami.</p>
+                <div style="background: white; padding: 30px; border-radius: 10px; margin-top: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Informasi Rekening Donasi</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>Bank:</strong> Bank Mandiri</p>
+                    <p style="font-size: 1.2rem; margin-bottom: 10px;"><strong>No. Rekening:</strong> 123-456-7890</p>
+                    <p style="font-size: 1.2rem; margin-bottom: 20px;"><strong>a.n:</strong> Yayasan Asa Jiwa Foundation</p>
+                    <a href="#" class="btn">Laporan Transparansi Donasi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">FAQ (Pertanyaan Umum)</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                  <div class="faq-question">
+                        <span>Apa itu AJF?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Asa Jiwa Foundation (AJF) adalah komunitas sekaligus yayasan non-profit yang berfokus pada edukasi dan pendampingan kesehatan mental untuk remaja dan pelajar.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Bagaimana cara bergabung?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Anda dapat bergabung sebagai relawan dengan mengisi formulir pendaftaran di halaman Relawan & Keanggotaan. Kami juga membuka kesempatan untuk menjadi peserta dalam berbagai program kami.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Bagaimana cara berkolaborasi?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Untuk kolaborasi, silakan hubungi kami melalui email atau WhatsApp dengan mengajukan proposal kerjasama. Kami terbuka untuk berbagai bentuk kolaborasi seperti media partner, penyelenggaraan event bersama, atau program edukasi.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Apakah ada biaya untuk mengikuti program?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sebagian besar program AJF bersifat gratis atau dengan biaya sukarela. Namun untuk beberapa program khusus seperti Festival Jiwa mungkin dikenakan biaya registrasi untuk menutup biaya penyelenggaraan.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Bagaimana cara mendapatkan dukungan kesehatan mental?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Anda dapat menghubungi Sahabat Asa melalui WhatsApp untuk mendapatkan dukungan peer support. Untuk kasus yang membutuhkan penanganan profesional, kami akan membantu mengarahkan ke psikolog atau konselor terkait.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Newsletter</h2>
+            <p>Dapatkan update terbaru dari AJF langsung di email Anda</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email Anda">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Tentang AJF</h3>
+                    <p>Asa Jiwa Foundation adalah komunitas dan yayasan non-profit yang berfokus pada edukasi dan pendampingan kesehatan mental untuk remaja dan pelajar Indonesia.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Menu Cepat</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#programs">Program</a></li>
+                        <li><a href="#news">Berita</a></li>
+                        <li><a href="#collaboration">Kolaborasi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Program</h3>
+                    <ul>
+                        <li><a href="#">Kelas Asa</a></li>
+                        <li><a href="#">Sahabat Asa</a></li>
+                        <li><a href="#">Jiwa Talk</a></li>
+                        <li><a href="#">Gerakan Jumat Asa</a></li>
+                        <li><a href="#">Festival Jiwa</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Sagara 102 Cibalong, Garut</li>
+                        <li><i class="fas fa-envelope"></i> asajiwafoundation@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +6282228575526</li>
+                        <li><i class="fab fa-instagram"></i> @asajiwa.id</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Asa Jiwa Foundation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chatbox -->
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/6282228575526" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Proposal Kolaborasi (Hidden until downloaded) -->
+    <div id="proposal-content" style="display: none;">
+        <h1>PROPOSAL KERJASAMA</h1>
+        <h2>Asa Jiwa Foundation (AJF)</h2>
+        <h3>Perihal: Penawaran Kerjasama dalam Meningkatkan Kesadaran Kesehatan Mental</h3>
+        
+        <h4>Latar Belakang</h4>
+        <p>Kesehatan mental merupakan isu yang semakin penting di tengah masyarakat, terutama di kalangan remaja dan pelajar. Banyak anak muda yang menghadapi stres, kecemasan, dan masalah kesehatan mental lainnya tanpa mendapatkan dukungan yang memadai. Asa Jiwa Foundation (AJF) hadir sebagai respon terhadap kebutuhan ini, dengan fokus pada edukasi, pendampingan, dan kampanye literasi kesehatan mental.</p>
+        
+        <h4>Tentang Asa Jiwa Foundation</h4>
+        <p>Asa Jiwa Foundation (AJF) adalah yayasan sosial non-profit yang didirikan pada Juli 2025 dengan nomor AHU AHU-0082456.AH.01.04.Tahun 2025. Kami berkomitmen untuk menjadi ruang aman bagi pelajar, remaja, dan masyarakat luas dalam memahami, merawat, serta menguatkan kesehatan mental.</p>
+        
+        <h4>Visi dan Misi</h4>
+        <p><strong>Visi:</strong> Mewujudkan generasi muda Indonesia yang sadar, peduli, dan tangguh dalam menjaga kesehatan mental.</p>
+        <p><strong>Misi:</strong></p>
+        <ol>
+            <li>Memberikan edukasi psikologi praktis yang mudah dipahami anak muda.</li>
+            <li>Membangun ruang aman (safe space) untuk saling mendukung tanpa takut dihakimi.</li>
+            <li>Melatih relawan muda yang memiliki empati dan keterampilan pendampingan.</li>
+            <li>Menjadi jembatan antara pelajar dengan tenaga profesional kesehatan mental.</li>
+            <li>Menciptakan budaya "pulih bareng" di sekolah dan lingkungan sekitar.</li>
+        </ol>
+        
+        <h4>Program Unggulan AJF</h4>
+        <ol>
+          <li><strong>Kelas Asa:</strong> Ruang belajar dan diskusi seputar kesehatan mental dengan bahasa yang mudah dipahami.</li>
+            <li><strong>Sahabat Asa:</strong> Program peer support dengan relawan muda yang siap mendampingi.</li>
+            <li><strong>Jiwa Talk:</strong> Webinar, talkshow, atau podcast bersama psikolog dan penyintas.</li>
+            <li><strong>Gerakan Jumat Asa:</strong> Kampanye rutin setiap Jumat melalui media sosial.</li>
+            <li><strong>Festival Jiwa:</strong> Event tahunan yang menggabungkan edukasi, seni, dan ruang ekspresi.</li>
+        </ol>
+        
+        <h4>Rencana Kerjasama</h4>
+        <p>Kami menawarkan beberapa bentuk kerjasama yang dapat disesuaikan dengan kebutuhan dan keinginan mitra:</p>
+        <ol>
+            <li><strong>Kolaborasi Program:</strong>
+                <ul>
+                    <li>Mengadakan webinar atau talkshow bersama dengan narasumber dari AJF dan mitra.</li>
+                    <li>Pelaksanaan Kelas Asa di lingkungan mitra.</li>
+                    <li>Partisipasi dalam Festival Jiwa sebagai penyelenggara atau peserta.</li>
+                </ul>
+            </li>
+            <li><strong>Media Partner:</strong>
+                <ul>
+                    <li>Pertukaran konten edukasi kesehatan mental di media sosial masing-masing.</li>
+                    <li>Publikasi bersama terkait kegiatan dan program kolaborasi.</li>
+                    <li>Dukungan publikasi untuk kegiatan AJF dan sebaliknya.</li>
+                </ul>
+            </li>
+            <li><strong>Pengembangan Relawan:</strong>
+                <ul>
+                    <li>Pelatihan relawan kesehatan mental bagi anggota mitra.</li>
+                    <li>Program magang atau relawan bersama di AJF.</li>
+                </ul>
+            </li>
+            <li><strong>Kampanye Bersama:</strong>
+                <ul>
+                    <li>Kolaborasi dalam Gerakan Jumat Asa dengan tema yang relevan.</li>
+                    <li>Kampanye sosial bersama untuk meningkatkan kesadaran kesehatan mental.</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <h4>Manfaat Kerjasama</h4>
+        <p><strong>Bagi Mitra:</strong></p>
+        <ul>
+            <li>Meningkatkan kapasitas anggota dalam isu kesehatan mental.</li>
+            <li>Memperluas jangkauan dan dampak program kepada masyarakat luas.</li>
+            <li>Meningkatkan citra positif sebagai organisasi yang peduli kesehatan mental.</li>
+        </ul>
+        
+        <p><strong>Bagi AJF:</strong></p>
+        <ul>
+          <li>Memperluas jangkauan edukasi kesehatan mental.</li>
+            <li>Membangun jaringan dengan organisasi yang memiliki visi serupa.</li>
+            <li>Meningkatkan efektivitas program melalui kolaborasi.</li>
+        </ul>
+        
+        <h4>Kesimpulan</h4>
+        <p>Kami percaya bahwa kolaborasi antara Asa Jiwa Foundation dan mitra akan menciptakan sinergi yang positif dalam upaya meningkatkan kesadaran kesehatan mental di Indonesia. Kami sangat terbuka untuk diskusi lebih lanjut mengenai bentuk kerjasama yang dapat kita lakukan bersama.</p>
+        
+        <h4>Kontak</h4>
+        <p><strong>Email:</strong> asajiwafoundation@gmail.com</p>
+        <p><strong>WhatsApp:</strong> +6282228575526</p>
+        <p><strong>Instagram:</strong> @asajiwa.id</p>
+        <p><strong>Alamat:</strong> Jl. Sagara 102 Cibalong, Garut, Jawa Barat</p>
+        
+        <p style="text-align: right; margin-top: 30px;">Hormat kami,<br><strong>Asa Jiwa Foundation</strong></p>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+      // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+
+        // Proposal Download
+        const downloadBtn = document.querySelector('.collaboration-card .btn');
+        
+        downloadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Get the proposal content
+            const proposalContent = document.getElementById('proposal-content').innerHTML;
+            
+            // Create a new window for printing
+            const printWindow = window.open('', '_blank');
+            
+            // Write the HTML content to the new window
+            printWindow.document.write(`
+                <!DOCTYPE html>
+                <html lang="id">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Proposal Kerjasama - Asa Jiwa Foundation</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            line-height: 1.6;
+                            margin: 40px;
+                        }
+                        h1, h2, h3, h4 {
+                            color: #2c7a7b;
+                            }
+                        ol, ul {
+                            margin-bottom: 20px;
+                        }
+                        @media print {
+                            body {
+                                margin: 20px;
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${proposalContent}
+                </body>
+                </html>
+            `);
+            
+            printWindow.document.close();
+            
+            // Wait for the content to load before printing
+            printWindow.onload = function() {
+                printWindow.print();
+                printWindow.close();
+            };
+        });
+    </script>
+</body>
+</html>
